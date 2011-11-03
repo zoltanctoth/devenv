@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python ~/.vim/python_utils/pep8.py $1 $2 $3 $4
