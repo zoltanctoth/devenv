@@ -1,3 +1,7 @@
+filetype on
+filetype plugin on
+filetype plugin indent on
+
 " make xterm ignore CTRL+something characters
 silent execute "!stty stop ^-" | redraw
 set nocompatible
@@ -13,9 +17,30 @@ set showmode
 set laststatus=2
 set statusline=%r%t\ %m%=%l,%v\ %P\ %y
 
-map <C-l> w
-imap <C-l> <Esc>wi
+set expandtab
+" Normal tab
+set tabstop=4
+" Indent
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set autoindent
 
-map <C-h> b
-imap <C-h> <Esc>bi
+map <C-l> :tabp<CR>
+imap <C-l> <Esc>:tabp
+
+map <C-h> :tabn<CR>
+imap <C-h> <Esc>:tabn
+
+map  <C-o> :tabe 
+imap <C-o> <Esc>:tabe 
+
+map <C-s> :w<CR>
+imap <C-s> :w<CR>i
+
+map q :q<CR>
+map Q :q!<CR>
+
+map <C-q>: qa<CR>
+imap <C-q>: <Esc>qa<CR>
 
