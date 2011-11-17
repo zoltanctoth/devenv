@@ -1,3 +1,4 @@
 bin/*mongo*
 bin/*bson*
+.vim/.netrwhist
 

@@ -13,3 +13,5 @@ fi
 # for building the androind SDK
 ulimit -S -n 1024
 
+ssh-agent >/dev/null
+
