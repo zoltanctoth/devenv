@@ -3,7 +3,7 @@ export EDITOR="vim"
 export LC_ALL="en_US.UTF-8"
 export PS1="\\u@\h:\\W\\$ "
 
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH;/usr/local/sbin"
 export PYTHONPATH=${PYTHONPATH}:`pwd`/.vim/python_utils
 
 function fixssh(){
@@ -18,3 +18,7 @@ fi
 # for building the androind SDK
 ulimit -S -n 1024
 
+ssh-agent >/dev/null
+
+
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
