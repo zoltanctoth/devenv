@@ -16,3 +16,5 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH:~/bin
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 export list_open_ports="sudo lsof -i -P | grep -iF listen"
+export EDITOR=vim
+

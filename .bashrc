@@ -3,7 +3,7 @@ export EDITOR="vim"
 export LC_ALL="en_US.UTF-8"
 export PS1="\\u@\h:\\W\\$ "
 
-export PATH="$HOME/bin:$PATH;/usr/local/sbin"
+export PATH="$PATH:$HOME/bin"
 export PYTHONPATH=${PYTHONPATH}:`pwd`/.vim/python_utils
 
 function fixssh(){
