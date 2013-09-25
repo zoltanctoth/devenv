@@ -6,6 +6,7 @@ fi
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+rvm use ruby-1.9.3-p194 &>/dev/null
 
 ##
 # Your previous /Users/zoltanctoth/.bash_profile file was backed up as /Users/zoltanctoth/.bash_profile.macports-saved_2012-08-15_at_10:04:36
@@ -17,4 +18,10 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH:~/bin
 
 export list_open_ports="sudo lsof -i -P | grep -iF listen"
 export EDITOR=vim
+PATH=$PATH:/Users/zoltanctoth/.prezi/simply:/Users/zoltanctoth/src/emr-client-tools
+export PATH
+
+export EMR_CLIENT_TOOLS_ROOT=~/src/emr-client-tools
+
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
