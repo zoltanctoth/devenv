@@ -12,14 +12,21 @@ ln -s $D/.vimrc .
 ln -s $D/.screenrc .
 ln -s $D/.zshrc .
 
-echo setting up brew
-/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
-
-if [ $? ]
+if [[ $(uname) == "Darwin" ]]
 then
-    brew install wget gawk links
-else
-    echo "brew installation failed" >&2
+    echo setting up brew
+    /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+
+    if [ $? ]
+    then
+        brew install wget gawk links
+    else
+        echo "brew installation failed" >&2
+    fi
 fi
+
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+source ~/.bash_profile
 
 cd -

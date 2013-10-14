@@ -14,14 +14,21 @@ rvm use ruby-1.9.3-p194 &>/dev/null
 
 # MacPorts Installer addition on 2012-08-15_at_10:04:36: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH:~/bin
+
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 export list_open_ports="sudo lsof -i -P | grep -iF listen"
 export EDITOR=vim
-PATH=$PATH:/Users/zoltanctoth/.prezi/simply:/Users/zoltanctoth/src/emr-client-tools
-export PATH
 
-export EMR_CLIENT_TOOLS_ROOT=~/src/emr-client-tools
+if [ -d ~/src/emr-client-tools ]
+then
+    export EMR_CLIENT_TOOLS_ROOT=~/src/emr-client-tools
+    PATH=$PATH:/Users/zoltanctoth/.prezi/simply:/Users/zoltanctoth/src/emr-client-tools
+    export PATH
+fi
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
+if [[ $(uname) == "Darwin" ]]
+then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
 
