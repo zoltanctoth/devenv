@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [ -f .bashrc ]; then
-    source .bashrc
-fi
-
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 rvm use ruby-1.9.3-p194 &>/dev/null
@@ -31,4 +27,12 @@ if [[ $(uname) == "Darwin" ]]
 then
     export JAVA_HOME="$(/usr/libexec/java_home)"
 fi
+
+
+[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
+
+if [ -f .bashrc ]; then
+    source .bashrc
+fi
+
 

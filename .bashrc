@@ -11,10 +11,6 @@ function fixssh(){
 }
 export -f fixssh
 
-if [ -f ~/.bash_local ]; then
-    source ~/.bash_local
-fi
-
 # for building the androind SDK
 ulimit -S -n 1024
 
@@ -25,3 +21,9 @@ PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+if [ -f ~/.bash_local ]; then
+    source ~/.bash_local
+fi
+
+
