@@ -7,7 +7,6 @@ silent execute "!stty stop ^-" | redraw
 set nocompatible
 filetype off
 
-
 set ruler
 syntax on
 colo elflord
@@ -46,35 +45,23 @@ map Q :q!<CR>
 map <C-q>: qa<CR>
 imap <C-q>: <Esc>qa<CR>
 
-
-augroup filetypedetect 
-  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig 
-augroup END 
-
-" HASKELL
-
-" wish to use a specific version of ghc, then please change
-" the ghc below to a full path to the correct one
-au BufEnter *.hs compiler ghc
-
-" For this section both of these should be set to your
-" browser and ghc of choice, I used the following
-" two vim lines to get those paths:
-" :r!which google-chrome
-" :r!whigh ghc
-let g:haddock_browser = "/usr/bin/links"
-let g:ghc = "/usr/local/bin/ghc"
-
-set tags=./TAGS;/tags
-
+" go plugin
 set rtp+=/usr/local/go/misc/vim
+autocmd BufRead,BufNewFile *.go set filetype=go
 
+" vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+" pathogen
+execute pathogen#infect()
+ 
 Bundle 'gmarik/vundle'
 Bundle 'wookiehangover/jshint.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
 
-filetype plugin indent on     " required!
+" NERDTree shortcut
+map <C-n> :NERDTreeToggle<CR>
 
