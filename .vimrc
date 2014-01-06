@@ -1,6 +1,5 @@
-filetype on
 filetype plugin on
-filetype plugin indent on
+filetype plugin indent off
 
 " make xterm ignore CTRL+something characters
 silent execute "!stty stop ^-" | redraw
@@ -19,9 +18,7 @@ set laststatus=2
 set statusline=%r%t\ %m%=%l,%v\ %P\ %y
 
 set expandtab
-" Normal tab
 set tabstop=4
-" Indent
 set shiftwidth=4
 set softtabstop=4
 set smarttab
@@ -45,23 +42,32 @@ map Q :q!<CR>
 map <C-q>: qa<CR>
 imap <C-q>: <Esc>qa<CR>
 
-" go plugin
-set rtp+=/usr/local/go/misc/vim
-autocmd BufRead,BufNewFile *.go set filetype=go
-
 " vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " pathogen
 execute pathogen#infect()
- 
+
 Bundle 'gmarik/vundle'
 Bundle 'wookiehangover/jshint.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 
+" go plugin
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+set rtp+=/usr/local/go/misc/vim
+autocmd BufRead,BufNewFile *.go set filetype=go
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType go compiler go
+
+" go compiler
+let g:golang_goroot = $GOROOT
 " NERDTree shortcut
 map <C-n> :NERDTreeToggle<CR>
 
