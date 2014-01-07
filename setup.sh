@@ -11,6 +11,7 @@ ln -s $D/.vim .
 ln -s $D/.vimrc .
 ln -s $D/.screenrc .
 ln -s $D/.zshrc .
+ln -s $D/.zshrc.local .
 
 if [[ $(uname) == "Darwin" ]]
 then

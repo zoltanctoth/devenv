@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+rvm use ruby-1.9.3-p194 &>/dev/null
+
+[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
+
+export list_open_ports="sudo lsof -i -P | grep -iF listen"
+
+if [ -d ~/src/emr-client-tools ]
+then
+    export EMR_CLIENT_TOOLS_ROOT=~/src/emr-client-tools
+    PATH=$PATH:/Users/zoltanctoth/.prezi/simply:/Users/zoltanctoth/src/emr-client-tools
+    export PATH
+fi
+
+if [[ $(uname) == "Darwin" ]]
+then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
+
+
+if [ ! -d ~/.vim/bundle/vundle ]
+then
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+fi
+
+alias etl="ssh etl.prezi.com"
