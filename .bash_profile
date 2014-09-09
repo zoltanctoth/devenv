@@ -40,3 +40,8 @@ then
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
+PATH=$PATH:/Users/zoltanctoth/.prezi/simply
+export PATH
+
+source /Users/zoltanctoth/.rvm/scripts/rvm
+

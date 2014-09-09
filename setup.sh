@@ -13,6 +13,11 @@ ln -s $D/.screenrc .
 ln -s $D/.zshrc .
 ln -s $D/.zshrc.local .
 
+mkdir -p ~/.src
+cd ~/.src
+git clone https://github.com/square/maximum-awesome.git && cd maximum-awesome && rake
+cd - >/dev/null
+
 if [[ $(uname) == "Darwin" ]]
 then
     echo setting up brew
@@ -20,7 +25,7 @@ then
 
     if [ $? ]
     then
-        brew install wget gawk links
+        brew install wget gawk links go coreutils gnu-sed git mercurial
     else
         echo "brew installation failed" >&2
     fi

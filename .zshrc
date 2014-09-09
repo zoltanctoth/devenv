@@ -55,23 +55,13 @@ export PATH="/usr/local/heroku/bin:/usr/local/bin:/Users/zoltanctoth/.nvm/v0.10.
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim -f'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
-
-if [[ -d "~/.zshrc.local" ]]
-then
-    source "~/.zshrc.local"
-fi
-
 #set up coreutils
 
 if [ -d /usr/local/opt/coreutils/libexec/gnubin ]
@@ -79,3 +69,10 @@ then
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
+
+if [[ -e ~/.zshrc.local ]]
+then
+    source ~/.zshrc.local
+fi
+
+
