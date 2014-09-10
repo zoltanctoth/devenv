@@ -41,3 +41,6 @@ map Q :q!<CR>
 
 map <C-q>: qa<CR>
 imap <C-q>: <Esc>qa<CR>
+
+execute pathogen#infect()
+
