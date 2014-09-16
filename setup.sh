@@ -7,11 +7,10 @@ echo Adding symlinks
 
 ln -s $D/.bashrc . 
 ln -s $D/.bash_profile .
+ln -s $D/.bash_profile.d .
 ln -s $D/.vim .
 ln -s $D/.vimrc .
 ln -s $D/.screenrc .
-ln -s $D/.zshrc .
-ln -s $D/.zshrc.local .
 
 mkdir -p ~/.src
 cd ~/.src
@@ -26,24 +25,14 @@ then
     if [ $? ]
     then
         brew install wget gawk links go coreutils gnu-sed git mercurial
+        brew install vim --with-lua --override-system-vi --with-client-server
+        brew link --overwrite vim
     else
         echo "brew installation failed" >&2
     fi
 fi
 
-# vim vundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
-# vim pathogen
-
-mkdir -p ~/.vim/autoload ~/.vim/bundle; \
-    curl -Sso ~/.vim/autoload/pathogen.vim \
-    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-
-cd ~/.vim/bundle
-
-git clone git://github.com/tpope/vim-sensible.git
-git clone https://github.com/scrooloose/nerdtree.git
+sudo pip install flake8
 
 source ~/.bash_profile
 
