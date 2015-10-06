@@ -47,12 +47,6 @@ execute pathogen#infect()
 let g:flake8_ignore="E501"
 autocmd BufWritePost *.py call Flake8()
 
-" Go
-let g:go_disable_autoinstall = 0  
-
-" Enable neocomplete
-let g:neocomplete#enable_at_startup = 1
-
 nmap <F8> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 

@@ -79,3 +79,5 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 find ~/.bash_profile.d/ -type f | sort | while read f; do source $f; done
 
+export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+
